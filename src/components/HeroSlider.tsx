@@ -6,33 +6,33 @@ import security2 from "@/assets/security.jpg";
 
 const slides = [
   {
-    subtitle: "Let's protect your family, business, and assets.",
-    title: "Integrated Physical Security",
-    highlight: "& Manpower Solutions",
-    description: "Understanding the need of Integrated Physical Security Solutions.",
-    cta: "Our Presence",
+    subtitle: "Trusted Security Services in Pune Since 1996.",
+    title: "Professional Security & Guarding Services",
+    // highlight: "Protecting People, Property & Assets",
+    description: "From trained security guards and event security management to advanced surveillance monitoring and access control systems, we provide customized security solutions tailored to every client's needs.",
+    cta: "Explore Our Services",
     ctaHref: "#about",
     // Corporate security command center / control room
     bgImage:security,
   },
   {
-    subtitle: "Let's protect your family, business, and assets.",
-    title: "Inclusive Security Integration",
-    highlight: "A Guardian for You",
+    subtitle: "Reliable Protection for Every Environment.",
+    title: "Manned Guarding, Event Security",
+    // highlight: "VIP Protection & Surveillance",
     description:
-      "Inclusiveness aims to eliminate barriers and offer equality to all by changing the system to accommodate the needs of everyone.",
-    cta: "Know More",
+      "Expert security solutions including event security, VIP protection, surveillance monitoring, and access control management.",
+    cta: "View Our Security Solutions",
     ctaHref: "#services",
     // Professional corporate / event security guards
     bgImage:
       security2,
   },
   {
-    subtitle: "Let's protect your family, business, and assets.",
-    title: "Intuitive App Interface",
-    highlight: "Our Robust Solution",
-    description: "On-the-go monitoring ensures convenience and improved system efficiency.",
-    cta: "Connect for Demo?",
+    subtitle: "Committed to Safety, Discipline & Trust.",
+    title: "24/7 Security Monitoring",
+    // highlight: "Certified & Trained Personnel",
+    description: "Licensed and trained security personnel delivering 24/7 safety through patrol services, risk assessment, and customized security plans.",
+    cta: "Request Security Consultation",
     ctaHref: "#contact",
     // CCTV / monitoring technology with darker ambience
     bgImage:
@@ -97,7 +97,7 @@ const HeroSlider = () => {
       <div className="container mx-auto px-4 relative z-10 pt-32 pb-20">
         <div className="max-w-2xl">
           <h5
-            className="text-primary text-base font-medium mb-6 transition-all duration-500"
+            className="text-white text-base font-medium mb-6 transition-all duration-500"
             key={`sub-${current}`}
           >
             {slides[current].subtitle}
@@ -108,7 +108,7 @@ const HeroSlider = () => {
           >
             {slides[current].title}
             <br />
-            <span className="text-primary">{slides[current].highlight}</span>
+            <span className="text-white">{slides[current].highlight}</span>
           </h1>
           <p className="text-white/60 text-base mt-6 mb-10 max-w-lg leading-relaxed" key={`desc-${current}`}>
             {slides[current].description}
