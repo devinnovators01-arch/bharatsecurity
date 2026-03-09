@@ -108,7 +108,7 @@ const HeroSlider = () => {
           >
             {slides[current].title}
             <br />
-            <span className="text-white">{slides[current].highlight}</span>
+            {/* <span className="text-white">{slides[current].highlight}</span> */}
           </h1>
           <p className="text-white/60 text-base mt-6 mb-10 max-w-lg leading-relaxed" key={`desc-${current}`}>
             {slides[current].description}

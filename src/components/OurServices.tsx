@@ -68,7 +68,7 @@ const OurServices = () => {
               {/* Front face */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-secondary/90 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 group-hover:opacity-0">
                 <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-5">
-                  <svc.icon className="text-primary" size={32} />
+                  <svc.icon className="text-primary" size={32} style={{color:"hsl(214deg 26.9% 73.72%)"}} />
                 </div>
                 <h3 className="text-lg font-bold text-secondary-foreground mb-3">{svc.title}</h3>
                 <p className="text-secondary-foreground/60 text-sm leading-relaxed">
