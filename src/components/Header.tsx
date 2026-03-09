@@ -6,7 +6,6 @@ import bssLogo from "@/assets/logo.png";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Our Services", href: "#services" },
-  { label: "Our Portfolio", href: "#portfolio" },
   { label: "Gallery", href: "#gallery" },
   { label: "About Us", href: "#about" },
   { label: "Contact Us", href: "#contact" },
