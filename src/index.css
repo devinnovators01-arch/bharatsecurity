@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;400;500;600;700;800&family=DM+Serif+Display&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +35,19 @@
     --ring: 187 100% 37%;
 
     --radius: 0.5rem;
+
+    /* Brand tokens from elevate-polish-pro */
+    --navy: 210 40% 16%;
+    --navy-light: 210 30% 25%;
+    --navy-dark: 210 45% 10%;
+    --cyan: 190 85% 40%;
+    --cyan-light: 190 70% 55%;
+    --cyan-dark: 190 90% 30%;
+    --warm-gray: 30 10% 96%;
+    --slate-text: 210 10% 50%;
+
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
 
     --sidebar-background: 220 25% 12%;
     --sidebar-foreground: 0 0% 95%;
@@ -83,22 +98,100 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Prevent image downloading globally */
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    /* Remove pointer events by default, rely on wrappers for clicks */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Re-enable pointer events for interactive elements where needed */
+  button img, a img, .cursor-pointer {
+     pointer-events: auto;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-tag {
+    @apply inline-block px-5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.15em] border;
+    color: hsl(var(--cyan));
+    border-color: hsl(var(--cyan) / 0.3);
+    background: hsl(var(--cyan) / 0.06);
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(var(--navy-dark)), hsl(var(--navy)));
+  }
+
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--cyan-dark)), hsl(var(--cyan)), hsl(var(--cyan-light)));
+  }
+
+  /* Dot pattern decorative */
+  .dot-pattern {
+    background-image: radial-gradient(hsl(var(--cyan) / 0.15) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+
+  /* Page hero for inner pages */
+  .page-hero {
+    @apply relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--navy-dark)), hsl(var(--navy)));
+  }
+
+  .page-hero::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-1;
+    background: linear-gradient(90deg, hsl(var(--cyan)), hsl(var(--cyan-light)), hsl(var(--cyan)));
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(200,100%,50%)];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(200, 100%, 50%)];
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
   }
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -106,10 +199,71 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 120px 120px;
+  }
+}
+
+@keyframes float-complex {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    d: path("M0,64 C360,128 720,0 1080,64 C1260,96 1380,80 1440,64 L1440,160 L0,160 Z");
+  }
+
+  50% {
+    d: path("M0,96 C360,32 720,128 1080,96 C1260,64 1380,96 1440,80 L1440,160 L0,160 Z");
+  }
+}
+
+.animate-\\[float_8s_ease-in-out_infinite\\] {
+  animation: float-complex 8s ease-in-out infinite;
+}
+
+.animate-\\[float_10s_ease-in-out_infinite_reverse\\] {
+  animation: float-complex 10s ease-in-out infinite reverse;
 }

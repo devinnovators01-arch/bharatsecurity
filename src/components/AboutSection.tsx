@@ -1,26 +1,16 @@
-import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
-
-const rotatingWords = ["Exceptional Inclusiveness", "Superior Services", "Outstanding Safety"];
-const tags = ["Close Protection", "Physical Security", "Event Security", "Corporate Security", "Housekeeping", "Risk Assessment"];
 
 // Six about-section images – add your own URLs in this list
 const aboutImages: string[] = ["https://content.jdmagicbox.com/v2/comp/pune/d8/020pxx20.xx20.180922110026.e2d8/catalogue/bharat-security-services-pimpri-pune-security-services-for-godown-z7nyd9gnw4.jpg", "https://res.cloudinary.com/dmqie3tyb/image/upload/v1764234812/IMG_20210211_112643_qjvibg.jpg", "https://content.jdmagicbox.com/comp/pune/d8/020pxx20.xx20.180922110026.e2d8/catalogue/bharat-security-services-pimpri-pune-security-services-for-atm-i10o9gsen1.jpg", "https://res.cloudinary.com/dmqie3tyb/image/upload/v1764234790/IMG-20230506-WA0020_1_z0s92z.jpg", "https://res.cloudinary.com/dmqie3tyb/image/upload/v1764234810/IMG_5359_hizset.jpg", "https://res.cloudinary.com/dmqie3tyb/image/upload/v1764234790/IMG_20220210_224501_po7tmk.jpg"];
 
-const AboutSection = () => {
-  const [wordIndex, setWordIndex] = useState(0);
+const tags = ["Close Protection", "Physical Security", "Event Security", "Corporate Security", "Housekeeping", "Risk Assessment"];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+const AboutSection = () => {
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-12 md:py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left - Image collage */}
           <div className="relative">
             {/* Decorative dot pattern behind and to the left */}
@@ -76,17 +66,17 @@ const AboutSection = () => {
               About Us
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
               Legacy of Protection
             </h2>
 
-            {/* Rotating text */}
-            <div className="h-10 overflow-hidden mb-6">
-              <span
-                key={wordIndex}
-                className="block text-xl md:text-2xl font-bold text-primary animate-fade-in"
-              >
-                {rotatingWords[wordIndex]}
+            {/* Quote */}
+            <div className="mb-6 bg-primary/5 border-l-4 border-primary p-4 md:p-6 rounded-r-md">
+              <span className="block text-lg md:text-xl lg:text-2xl font-bold text-foreground mb-2 italic">
+                &quot;Safety is not just our duty, it&apos;s our pride.&quot;
+              </span>
+              <span className="block text-primary font-semibold tracking-wide text-sm md:text-base">
+                Trust. Discipline. Dedication.
               </span>
             </div>
 

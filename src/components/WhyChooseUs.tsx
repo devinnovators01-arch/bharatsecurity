@@ -26,9 +26,9 @@ const WhyChooseUs = () => {
   }, []);
 
   return (
-    <section id="why-us" className="py-20 bg-background">
+    <section id="why-us" className="py-12 md:py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left content */}
           <div>
             <span className="inline-block border-2 border-primary text-primary text-sm font-semibold px-5 py-1.5 rounded-md mb-6">
@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-2">
               We Protect with Excellence and
             </h2>
-            <div className="h-10 overflow-hidden mb-6">
+            <div className="h-8 md:h-10 overflow-hidden mb-6">
               <span
                 key={wordIndex}
                 className="block text-xl md:text-2xl font-bold text-primary animate-fade-in"
@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
               </span>
             </div>
 
-            <p className="text-muted-foreground mb-8 leading-relaxed text-sm">Choosing BSS means entrusting your security to a dedicated, experienced, and dependable team.
+            <p className="text-muted-foreground mb-8 leading-relaxed text-sm md:text-base">Choosing BSS means entrusting your security to a dedicated, experienced, and dependable team.
 Our commitment to proactive protection, continuous improvement, and client satisfaction makes us the preferred choice for organizations and individuals seeking comprehensive security solutions.
             </p>
 
@@ -71,8 +71,8 @@ Our commitment to proactive protection, continuous improvement, and client satis
           </div>
 
           {/* Right image placeholder */}
-          <div className="relative">
-            <div className="rounded-2xl h-[500px] overflow-hidden border border-border bg-muted relative">
+          <div className="relative mt-4 md:mt-0">
+            <div className="rounded-2xl h-[350px] sm:h-[400px] md:h-[500px] overflow-hidden border border-border bg-muted relative">
               <img
                 src={whyChooseUsImage}
                 alt="Professional security team and monitoring"

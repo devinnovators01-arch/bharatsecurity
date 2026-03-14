@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { GraduationCap, UserCheck, Users, Sparkles, ArrowRight } from "lucide-react";
 
 const rotatingWords = ["Services", "Solutions"];
@@ -8,21 +9,25 @@ const services = [
     icon: GraduationCap,
     title: "  Manned Guarding Services",
     description: "We provide rigorous training to ensure top-notch safety and security for client properties.",
+    linkId: "armed-security-guards",
   },
   {
     icon: UserCheck,
     title: "Event Security Management",
     description: "Effective supervision ensures quality service, team morale, and client satisfaction.",
+    linkId: "event-security-crowd-management",
   },
   {
     icon: Users,
     title: "Monitoring & Surveillance Services",
     description: "Our security manpower protect people, property, and assets with vigilance and discipline.",
+    linkId: "corporate-commercial-security",
   },
   {
     icon: Sparkles,
     title: "VIP Protection Services",
     description: "We ensure swift, efficient deployment for seamless housekeeping services to clients.",
+    linkId: "vip-escort-personal-protection",
   },
 ];
 
@@ -37,7 +42,7 @@ const OurServices = () => {
   }, []);
 
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section id="services" className="py-12 md:py-20 bg-muted">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-6">
@@ -46,14 +51,15 @@ const OurServices = () => {
           </span>
         </div>
 
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <div className="text-center mb-10 md:mb-14 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-snug">
             Introduction to Physical Security{" "}
-            <span className="text-primary" key={wordIndex}>
+            <br className="sm:hidden" />
+            <span className="text-primary inline-block min-w-[120px]" key={wordIndex}>
               {rotatingWords[wordIndex]}
             </span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-sm leading-relaxed">
+          <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
             We offer a comprehensive range of services tailored to meet the unique requirements. of various sectors, including corporate offices, residential complexes, healthcare facilities, educational institutions, retail environments, and event venues.
           </p>
         </div>
@@ -79,9 +85,9 @@ const OurServices = () => {
               {/* Back face (hover) */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <h3 className="text-xl font-bold text-primary-foreground mb-4">{svc.title}</h3>
-                <a href="#" className="inline-flex items-center gap-2 text-primary-foreground text-sm font-semibold border-b border-primary-foreground/50 pb-1 hover:border-primary-foreground transition-colors">
+                <Link to={`/services#${svc.linkId}`} className="inline-flex items-center gap-2 text-primary-foreground text-sm font-semibold border-b border-primary-foreground/50 pb-1 hover:border-primary-foreground transition-colors">
                   Read more <ArrowRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           ))}

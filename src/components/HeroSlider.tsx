@@ -97,20 +97,18 @@ const HeroSlider = () => {
       <div className="container mx-auto px-4 relative z-10 pt-32 pb-20">
         <div className="max-w-2xl">
           <h5
-            className="text-white text-base font-medium mb-6 transition-all duration-500"
+            className="text-white text-sm md:text-base font-medium mb-4 md:mb-6 transition-all duration-500"
             key={`sub-${current}`}
           >
             {slides[current].subtitle}
           </h5>
           <h1
-            className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] mb-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.2] md:leading-[1.15] mb-2"
             key={`title-${current}`}
           >
             {slides[current].title}
-            <br />
-            {/* <span className="text-white">{slides[current].highlight}</span> */}
           </h1>
-          <p className="text-white/60 text-base mt-6 mb-10 max-w-lg leading-relaxed" key={`desc-${current}`}>
+          <p className="text-white/80 md:text-white/60 text-sm md:text-base mt-4 md:mt-6 mb-8 md:mb-10 max-w-lg leading-relaxed mix-blend-plus-lighter" key={`desc-${current}`}>
             {slides[current].description}
           </p>
           <Button
@@ -122,12 +120,12 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      {/* Nav arrows */}
-      <button onClick={prev} className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/5 hover:bg-primary text-white rounded-full transition-colors border border-white/10">
-        <ChevronLeft size={22} />
+      {/* Nav arrows - hidden on very small devices or made smaller */}
+      <button onClick={prev} className="hidden sm:flex absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-white/5 hover:bg-primary text-white rounded-full transition-colors border border-white/10">
+        <ChevronLeft size={20} className="md:w-6 md:h-6" />
       </button>
-      <button onClick={next} className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/5 hover:bg-primary text-white rounded-full transition-colors border border-white/10">
-        <ChevronRight size={22} />
+      <button onClick={next} className="hidden sm:flex absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-white/5 hover:bg-primary text-white rounded-full transition-colors border border-white/10">
+        <ChevronRight size={20} className="md:w-6 md:h-6" />
       </button>
 
       {/* Dots */}
